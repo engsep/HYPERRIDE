@@ -1,0 +1,131 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: utils
+    init: |
+      docker pull efrecon/mqtt-client
+      echo -e "\033[1;44mSome useful commands\033[0m"
+      echo -e "\033[1;32mNode.js\033[0m"
+      node -e "console.log(require('os').version())"
+      echo -e "\033[1;33mGitpod\033[0m"
+      (gp ports list 2> /dev/null) || true
+      gp top
+      echo -e "\033[1;31mMySQL\033[0m"
+      echo -e "\033[0;32mGenerate hash for access token\033[0m"
+      node -e "console.log(require('crypto').createHash('sha3-256').update('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx').digest('hex'))"
+      echo -e "\033[0;32mmMySQL dump and restore\033[0m"
+      echo "docker exec db-mysql /usr/bin/mysqldump --databases -u root --password=secret idm > backup.sql"
+      echo "cat backup.sql | docker exec -i db-mysql /usr/bin/mysql -u root --password=secret idm"
+      echo -e "\033[1;34mMQTT\033[0m"
+      docker run -it --rm --name mqtt-subscriber --network fiware_default efrecon/mqtt-client sub -h mosquitto -t "/#"
+      docker run -it --rm --name mqtt-publisher --network fiware_default efrecon/mqtt-client pub -h mosquitto -m "Hi!" -t "/test"
+      echo -e "\033[1;36mDocker\033[0m"
+      docker exec -it db-mysql /bin/bash
+      docker logs fiware-orion -f
+      docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+  - name: build
+    init: docker compose pull # runs during prebuild
+    command: |
+      echo Welcome to FIWARE
+      docker compose down -v --remove-orphans
+      docker compose -p fiware up -d --remove-orphans --build
+      echo Waking up FIWARE Node-RED app on Replit...
+      curl https://fiware.zeldalegends.repl.co/gitpod -d url=$(node -e "console.log(require('process').env.GITPOD_WORKSPACE_URL)")
+      curl https://hyperride.engsep.repl.co/gitpod -d url=$(node -e "console.log(require('process').env.GITPOD_WORKSPACE_URL)")
+      curl https://bd4nrg.engsep.repl.co/gitpod -d url=$(node -e "console.log(require('process').env.GITPOD_WORKSPACE_URL)")
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - name: Apache Server
+    description: Static JSON LD @context files
+    port: 80
+    onOpen: ignore
+  - name: Orion
+    description: Context Broker
+    port: 1026
+    onOpen: notify
+  - name: Wilma (Orion)
+    description: Orion PEP Proxy
+    port: 1027
+    onOpen: ignore
+    visibility: public
+  - name: Orion LD
+    description: Context Broker NGSI-LD
+    port: 1028
+    onOpen: notify
+  - name: Wilma (Orion LD)
+    description: Orion LD PEP Proxy
+    port: 1029
+    onOpen: ignore
+    visibility: public
+  - name: Node-RED
+    description: Flow-programming automation
+    port: 1880
+    onOpen: notify
+  - name: Wilma (Node-RED)
+    description: Node-RED PEP Proxy
+    port: 1881
+    onOpen: ignore
+    visibility: public
+  - name: Mosquitto
+    description: MQTT Broker
+    port: 1883
+    onOpen: ignore
+    visibility: public
+  - name: MQTT over Websocket
+    description: HTTP Websocket communications
+    port: 9001
+    onOpen: ignore
+    visibility: public
+#  - name: Tutorial App
+#    description: Web app displaying context data
+#    port: 3000
+#    onOpen: open-preview
+#    visibility: public
+#  - name: Tutorial Devices
+#    description: Dummy IoT Sensors over HTTP
+#    port: 3001
+#    onOpen: ignore
+  - name: Keyrock
+    description: Identity Manager
+    port: 3005
+    onOpen: open-preview
+    visibility: public
+  - name: MySQL
+    description: Database for Keyrock
+    port: 3306
+    onOpen: ignore
+  - name: IoT Agent (North Port)
+    description: NGSI data and device provisioning
+    port: 4041
+    onOpen: ignore
+  - name: IoT Agent (South Port)
+    description: Ultralight HTTP measures
+    port: 7896
+    onOpen: ignore
+  - name: Express App
+    description: Simple Express application
+    port: 8000
+    onOpen: notify
+  - name: Wilma (Express App)
+    description: Express App PEP Proxy
+    port: 8001
+    onOpen: ignore
+    visibility: public
+#  - name: Web App
+#    description: Simple web application
+#    port: 8082
+#    onOpen: notify
+#  - name: Wilma (Web App)
+#    description: Web App PEP Proxy
+#    port: 8083
+#    onOpen: ignore
+#    visibility: public
+  - name: MongoExpress
+    description: MongoDB frontend
+    port: 8081
+    onOpen: ignore
+    visibility: public
+  - name: MongoDB
+    description: Database for Orion + IoT Agent
+    port: 27017
+    onOpen: ignore

@@ -1,0 +1,1030 @@
+{
+    "node-red": {
+        "name": "node-red",
+        "version": "3.0.2",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "junction": {
+                "name": "junction",
+                "types": [
+                    "junction"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/05-junction.js"
+            },
+            "inject": {
+                "name": "inject",
+                "types": [
+                    "inject"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/20-inject.js"
+            },
+            "debug": {
+                "name": "debug",
+                "types": [
+                    "debug"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/21-debug.js"
+            },
+            "complete": {
+                "name": "complete",
+                "types": [
+                    "complete"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/24-complete.js"
+            },
+            "catch": {
+                "name": "catch",
+                "types": [
+                    "catch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/25-catch.js"
+            },
+            "status": {
+                "name": "status",
+                "types": [
+                    "status"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/25-status.js"
+            },
+            "link": {
+                "name": "link",
+                "types": [
+                    "link in",
+                    "link out",
+                    "link call"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/60-link.js"
+            },
+            "comment": {
+                "name": "comment",
+                "types": [
+                    "comment"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/90-comment.js"
+            },
+            "unknown": {
+                "name": "unknown",
+                "types": [
+                    "unknown"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/common/98-unknown.js"
+            },
+            "function": {
+                "name": "function",
+                "types": [
+                    "function"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/10-function.js"
+            },
+            "switch": {
+                "name": "switch",
+                "types": [
+                    "switch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/10-switch.js"
+            },
+            "change": {
+                "name": "change",
+                "types": [
+                    "change"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/15-change.js"
+            },
+            "range": {
+                "name": "range",
+                "types": [
+                    "range"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/16-range.js"
+            },
+            "template": {
+                "name": "template",
+                "types": [
+                    "template"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/80-template.js"
+            },
+            "delay": {
+                "name": "delay",
+                "types": [
+                    "delay"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/89-delay.js"
+            },
+            "trigger": {
+                "name": "trigger",
+                "types": [
+                    "trigger"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/89-trigger.js"
+            },
+            "exec": {
+                "name": "exec",
+                "types": [
+                    "exec"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/90-exec.js"
+            },
+            "rbe": {
+                "name": "rbe",
+                "types": [
+                    "rbe"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/rbe.js"
+            },
+            "tls": {
+                "name": "tls",
+                "types": [
+                    "tls-config"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/05-tls.js"
+            },
+            "httpproxy": {
+                "name": "httpproxy",
+                "types": [
+                    "http proxy"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/06-httpproxy.js"
+            },
+            "mqtt": {
+                "name": "mqtt",
+                "types": [
+                    "mqtt in",
+                    "mqtt out",
+                    "mqtt-broker"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/10-mqtt.js"
+            },
+            "httpin": {
+                "name": "httpin",
+                "types": [
+                    "http in",
+                    "http response"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/21-httpin.js"
+            },
+            "httprequest": {
+                "name": "httprequest",
+                "types": [
+                    "http request"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js"
+            },
+            "websocket": {
+                "name": "websocket",
+                "types": [
+                    "websocket in",
+                    "websocket out",
+                    "websocket-listener",
+                    "websocket-client"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/22-websocket.js"
+            },
+            "tcpin": {
+                "name": "tcpin",
+                "types": [
+                    "tcp in",
+                    "tcp out",
+                    "tcp request"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/31-tcpin.js"
+            },
+            "udp": {
+                "name": "udp",
+                "types": [
+                    "udp in",
+                    "udp out"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/network/32-udp.js"
+            },
+            "CSV": {
+                "name": "CSV",
+                "types": [
+                    "csv"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-CSV.js"
+            },
+            "HTML": {
+                "name": "HTML",
+                "types": [
+                    "html"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-HTML.js"
+            },
+            "JSON": {
+                "name": "JSON",
+                "types": [
+                    "json"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-JSON.js"
+            },
+            "XML": {
+                "name": "XML",
+                "types": [
+                    "xml"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-XML.js"
+            },
+            "YAML": {
+                "name": "YAML",
+                "types": [
+                    "yaml"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/parsers/70-YAML.js"
+            },
+            "split": {
+                "name": "split",
+                "types": [
+                    "split",
+                    "join"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/sequence/17-split.js"
+            },
+            "sort": {
+                "name": "sort",
+                "types": [
+                    "sort"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/sequence/18-sort.js"
+            },
+            "batch": {
+                "name": "batch",
+                "types": [
+                    "batch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/sequence/19-batch.js"
+            },
+            "file": {
+                "name": "file",
+                "types": [
+                    "file",
+                    "file in"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/storage/10-file.js"
+            },
+            "watch": {
+                "name": "watch",
+                "types": [
+                    "watch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/storage/23-watch.js"
+            }
+        }
+    },
+    "node-red-contrib-ethereum": {
+        "name": "node-red-contrib-ethereum",
+        "version": "1.0.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "contract-call": {
+                "name": "contract-call",
+                "types": [
+                    "contract-call"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/contract-call.js"
+            },
+            "event-listener": {
+                "name": "event-listener",
+                "types": [
+                    "event-listener"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/event-listener.js"
+            },
+            "event-reader": {
+                "name": "event-reader",
+                "types": [
+                    "event-reader"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/event-reader.js"
+            },
+            "erc20-call": {
+                "name": "erc20-call",
+                "types": [
+                    "erc20-call"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/erc20-call.js"
+            },
+            "erc20-listener": {
+                "name": "erc20-listener",
+                "types": [
+                    "erc20-listener"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/erc20-listener.js"
+            },
+            "erc20-reader": {
+                "name": "erc20-reader",
+                "types": [
+                    "erc20-reader"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/erc20-reader.js"
+            },
+            "transaction-reader": {
+                "name": "transaction-reader",
+                "types": [
+                    "transaction-reader"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/transaction-reader.js"
+            },
+            "gas-price": {
+                "name": "gas-price",
+                "types": [
+                    "gas-price"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/gas-price.js"
+            },
+            "ether-conversion": {
+                "name": "ether-conversion",
+                "types": [
+                    "ether-conversion"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/ether-conversion.js"
+            },
+            "address-gen": {
+                "name": "address-gen",
+                "types": [
+                    "address-gen"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/address-gen.js"
+            },
+            "ethereum-client": {
+                "name": "ethereum-client",
+                "types": [
+                    "ethereum-client"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/ethereum-client.js"
+            },
+            "smart-contract": {
+                "name": "smart-contract",
+                "types": [
+                    "smart-contract"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/smart-contract.js"
+            },
+            "sender-account": {
+                "name": "sender-account",
+                "types": [
+                    "sender-account"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethereum",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethereum/source/nodes/sender-account.js"
+            }
+        }
+    },
+    "node-red-contrib-ethers": {
+        "name": "node-red-contrib-ethers",
+        "version": "1.0.7-hybuild",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "ethers-wallet": {
+                "name": "ethers-wallet",
+                "types": [
+                    "ethers-wallet"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethers",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethers/node-red-contrib-ethers/node-ethers-wallet.js"
+            },
+            "ethers-contract": {
+                "name": "ethers-contract",
+                "types": [
+                    "ethers-contract"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethers",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethers/node-red-contrib-ethers/node-ethers-contract.js"
+            },
+            "ethers-transaction": {
+                "name": "ethers-transaction",
+                "types": [
+                    "ethers-transaction"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethers",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethers/node-red-contrib-ethers/node-ethers-transaction.js"
+            },
+            "ethers-network": {
+                "name": "ethers-network",
+                "types": [
+                    "ethers-network"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ethers",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ethers/node-red-contrib-ethers/node-ethers-network.js"
+            }
+        }
+    },
+    "node-red-contrib-fiware_official": {
+        "name": "node-red-contrib-fiware_official",
+        "version": "1.0.3",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "Entity": {
+                "name": "Entity",
+                "types": [
+                    "NGSI-Entity"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fiware_official",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fiware_official/src/nodes/NGSI/entity/entity.js"
+            },
+            "Dataset": {
+                "name": "Dataset",
+                "types": [
+                    "NGSI-Dataset"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fiware_official",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fiware_official/src/nodes/NGSI/dataset/dataset.js"
+            },
+            "Update": {
+                "name": "Update",
+                "types": [
+                    "NGSI-Update"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fiware_official",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fiware_official/src/nodes/NGSI/update/update.js"
+            },
+            "Subscription": {
+                "name": "Subscription",
+                "types": [
+                    "NGSI-Subscription"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fiware_official",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fiware_official/src/nodes/NGSI/subscription/subscription.js"
+            },
+            "v2ToLD": {
+                "name": "v2ToLD",
+                "types": [
+                    "NGSI-v2ToLD"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fiware_official",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fiware_official/src/nodes/NGSI/v2ToLD/v2ToLD.js"
+            },
+            "Context-Broker": {
+                "name": "Context-Broker",
+                "types": [
+                    "Context-Broker"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fiware_official",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fiware_official/src/nodes/NGSI/contextbroker/contextbroker.js"
+            }
+        }
+    },
+    "node-red-contrib-fs": {
+        "name": "node-red-contrib-fs",
+        "version": "1.4.1",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "File Lister": {
+                "name": "File Lister",
+                "types": [
+                    "fs-file-lister"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-fs",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-fs/fs/fs-file-lister.js"
+            }
+        }
+    },
+    "node-red-contrib-watchdirectory": {
+        "name": "node-red-contrib-watchdirectory",
+        "version": "1.0.15",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "node-red-watchdirectory.js": {
+                "name": "node-red-watchdirectory.js",
+                "types": [
+                    "watch-directory"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-watchdirectory",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-watchdirectory/node-red-watchdirectory.js"
+            }
+        }
+    },
+    "node-red-dashboard": {
+        "name": "node-red-dashboard",
+        "version": "3.2.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "ui_base": {
+                "name": "ui_base",
+                "types": [
+                    "ui_base"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_base.js"
+            },
+            "ui_button": {
+                "name": "ui_button",
+                "types": [
+                    "ui_button"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_button.js"
+            },
+            "ui_dropdown": {
+                "name": "ui_dropdown",
+                "types": [
+                    "ui_dropdown"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_dropdown.js"
+            },
+            "ui_switch": {
+                "name": "ui_switch",
+                "types": [
+                    "ui_switch"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_switch.js"
+            },
+            "ui_slider": {
+                "name": "ui_slider",
+                "types": [
+                    "ui_slider"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_slider.js"
+            },
+            "ui_numeric": {
+                "name": "ui_numeric",
+                "types": [
+                    "ui_numeric"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_numeric.js"
+            },
+            "ui_text_input": {
+                "name": "ui_text_input",
+                "types": [
+                    "ui_text_input"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_text_input.js"
+            },
+            "ui_date_picker": {
+                "name": "ui_date_picker",
+                "types": [
+                    "ui_date_picker"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_date_picker.js"
+            },
+            "ui_colour_picker": {
+                "name": "ui_colour_picker",
+                "types": [
+                    "ui_colour_picker"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_colour_picker.js"
+            },
+            "ui_form": {
+                "name": "ui_form",
+                "types": [
+                    "ui_form"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_form.js"
+            },
+            "ui_text": {
+                "name": "ui_text",
+                "types": [
+                    "ui_text"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_text.js"
+            },
+            "ui_gauge": {
+                "name": "ui_gauge",
+                "types": [
+                    "ui_gauge"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_gauge.js"
+            },
+            "ui_chart": {
+                "name": "ui_chart",
+                "types": [
+                    "ui_chart"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_chart.js"
+            },
+            "ui_audio": {
+                "name": "ui_audio",
+                "types": [
+                    "ui_audio"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_audio.js"
+            },
+            "ui_toast": {
+                "name": "ui_toast",
+                "types": [
+                    "ui_toast"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_toast.js"
+            },
+            "ui_ui_control": {
+                "name": "ui_ui_control",
+                "types": [
+                    "ui_ui_control"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_ui_control.js"
+            },
+            "ui_template": {
+                "name": "ui_template",
+                "types": [
+                    "ui_template"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_template.js"
+            },
+            "ui_link": {
+                "name": "ui_link",
+                "types": [
+                    "ui_link"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_link.js"
+            },
+            "ui_tab": {
+                "name": "ui_tab",
+                "types": [
+                    "ui_tab"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_tab.js"
+            },
+            "ui_group": {
+                "name": "ui_group",
+                "types": [
+                    "ui_group"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_group.js"
+            },
+            "ui_spacer": {
+                "name": "ui_spacer",
+                "types": [
+                    "ui_spacer"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-dashboard",
+                "file": "/usr/src/node-red/node_modules/node-red-dashboard/nodes/ui_spacer.js"
+            }
+        }
+    },
+    "node-red-node-base64": {
+        "name": "node-red-node-base64",
+        "version": "0.3.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "base64": {
+                "name": "base64",
+                "types": [
+                    "base64"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-node-base64",
+                "file": "/usr/src/node-red/node_modules/node-red-node-base64/70-base64.js"
+            }
+        }
+    },
+    "node-red-node-smooth": {
+        "name": "node-red-node-smooth",
+        "version": "0.1.2",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "smooth": {
+                "name": "smooth",
+                "types": [
+                    "smooth"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-node-smooth",
+                "file": "/usr/src/node-red/node_modules/node-red-node-smooth/17-smooth.js"
+            }
+        }
+    },
+    "node-red-node-ui-table": {
+        "name": "node-red-node-ui-table",
+        "version": "0.3.12",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "ui_table": {
+                "name": "ui_table",
+                "types": [
+                    "ui_table"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-node-ui-table",
+                "file": "/usr/src/node-red/node_modules/node-red-node-ui-table/node.js"
+            }
+        }
+    }
+}
