@@ -38,3 +38,6 @@ jspm_packages/
 
 setenv.bat
 *.backup
+*.bak
+.db
+.env

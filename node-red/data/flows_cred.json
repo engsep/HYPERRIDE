@@ -8,11 +8,20 @@
     "a46f63f7bc8183e7": {
         "privateKey": "${ETHEREUM_PRIVATE_KEY}"
     },
+    "93b18379800c0f5a": {
+        "keyPrivate": "${ETHEREUM_PRIVATE_KEY}"
+    },
+    "b4799249b6347148": {
+        "authtoken": "2MrquzjyQwhQy3WYtWstr9Hw96T_2jovWFUPBSAWAFaf2t6kb"
+    },
     "ab8a838eb23942ff": {},
-    "46a656c62fd8366b": {
-        "username": "alice-the-admin@test.com",
-        "password": "test",
-        "client_id": "tutorial-dckr-site-0000-xpresswebapp",
-        "client_secret": "tutorial-dckr-site-0000-clientsecret"
-    }
+    "3e5ce0e41afcd72f": {},
+    "ea805040d9020dd5": {},
+    "36a9710a40eeec8e": {},
+    "04431ebc17ac8506": {},
+    "4f617122750c0f43": {},
+    "52b33d29afa99a83": {},
+    "4be639eb23286d16": {},
+    "40b1b6f19e5fe649": {},
+    "1c5e119ec6122feb": {}
 }

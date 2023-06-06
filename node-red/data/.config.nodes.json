@@ -695,7 +695,7 @@
     },
     "node-red-contrib-fs": {
         "name": "node-red-contrib-fs",
-        "version": "1.4.1",
+        "version": "1.4.2",
         "local": false,
         "user": false,
         "nodes": {
@@ -733,7 +733,7 @@
     },
     "node-red-dashboard": {
         "name": "node-red-dashboard",
-        "version": "3.2.0",
+        "version": "3.4.0",
         "local": false,
         "user": false,
         "nodes": {
@@ -1010,7 +1010,7 @@
     },
     "node-red-node-ui-table": {
         "name": "node-red-node-ui-table",
-        "version": "0.3.12",
+        "version": "0.4.3",
         "local": false,
         "user": false,
         "nodes": {
@@ -1024,6 +1024,150 @@
                 "user": false,
                 "module": "node-red-node-ui-table",
                 "file": "/usr/src/node-red/node_modules/node-red-node-ui-table/node.js"
+            }
+        }
+    },
+    "node-red-contrib-ngrok": {
+        "name": "node-red-contrib-ngrok",
+        "version": "2.0.1",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "ngrok": {
+                "name": "ngrok",
+                "types": [
+                    "ngrok",
+                    "ngrokauth"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-ngrok",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-ngrok/ngrok.js"
+            }
+        }
+    },
+    "node-red-contrib-image-tools": {
+        "name": "node-red-contrib-image-tools",
+        "version": "2.0.4",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "jimp": {
+                "name": "jimp",
+                "types": [
+                    "jimp-image"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-image-tools/jimp.js"
+            },
+            "xzingDecode": {
+                "name": "xzingDecode",
+                "types": [
+                    "Barcode Decoder"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-image-tools/xzingDecode.js"
+            },
+            "barcodeWriter": {
+                "name": "barcodeWriter",
+                "types": [
+                    "Barcode Generator"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-image-tools/barcodeWriter.js"
+            },
+            "imageViewer": {
+                "name": "imageViewer",
+                "types": [
+                    "image viewer"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-image-tools/imageViewer.js"
+            },
+            "app": {
+                "name": "app",
+                "types": [],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-image-tools/app.js"
+            }
+        }
+    },
+    "node-red-contrib-localtunnel": {
+        "name": "node-red-contrib-localtunnel",
+        "version": "1.0.0-2",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "localtunnel": {
+                "name": "localtunnel",
+                "types": [
+                    "localtunnel"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-localtunnel",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-localtunnel/localtunnel.js"
+            }
+        }
+    },
+    "node-red-node-random": {
+        "name": "node-red-node-random",
+        "version": "0.4.1",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "random": {
+                "name": "random",
+                "types": [
+                    "random"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-node-random",
+                "file": "/usr/src/node-red/node_modules/node-red-node-random/random.js"
+            }
+        }
+    },
+    "node-red-contrib-os": {
+        "name": "node-red-contrib-os",
+        "version": "0.2.1",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "os": {
+                "name": "os",
+                "types": [
+                    "OS",
+                    "Drives",
+                    "Uptime",
+                    "CPUs",
+                    "Loadavg",
+                    "Memory",
+                    "NetworkIntf"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-os",
+                "file": "/usr/src/node-red/node_modules/node-red-contrib-os/os/os.js"
             }
         }
     }
