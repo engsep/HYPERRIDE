@@ -1,0 +1,174 @@
+
+"openapi": "3.1.0"
+"info":
+  "title": "JSON-RPC Web 3.0 Proxy API"
+  "description": "REST API to utilize the ProofOfExistence smart contract using HTTP requests.\nThis software has been tested with the following blockchains: \n- Ganache\n- Hyperledger Besu\n- Sepolia\n"
+  "termsOfService": "http://swagger.io/terms/"
+  "contact":
+    "email": "lorenzo.cristofori@eng.it"
+  "license":
+    "name": "Apache 2.0"
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  "version": "1.0.0"
+"externalDocs":
+  "description": "Find out more about Swagger"
+  "url": "http://swagger.io"
+"servers":
+  -
+    "url": ""
+"tags":
+  -
+    "name": "PoE"
+    "description": "Proof of Existence"
+    "externalDocs":
+      "description": "Find out more about Swagger"
+      "url": "http://swagger.io"
+"paths":
+  "/notarize":
+    "post":
+      "tags":
+        - "PoE"
+      "summary": "Certify the existence of a new document"
+      "description": "Calculate and register the document hash into the blockchain"
+      "operationId": "notarizeDoc"
+      "parameters":
+        -
+          "name": "info"
+          "in": "query"
+          "description": "(Optional) Plain text to attach to the registration"
+          "required": false
+          "schema":
+            "type": "string"
+      "requestBody":
+        "description": "The document can be a JSON object or any text with any format (e.g., XACML)"
+        "content":
+          "application/json":
+            "schema":
+              "type": "object"
+              "examples":
+                -
+                  "id": "RULE#001"
+                  "any property you need": "any format you like"
+                  "this is": "just an example"
+                  "timestamp": 1274563890
+                  "rule": "<Rule Effect=\"Permit\" RuleId=\"rule1\"><Condition><Apply FunctionId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\"><Apply FunctionId=\"urn:oasis:names:tc:xacml:1.0:function:string-one-and-only\"><AttributeDesignator AttributeId=\"urn:oasis:names:tc:xacml:1.0:subject:subject-id\" Category=\"urn:oasis:names:tc:xacml:1.0:subject-category:access-subject\" DataType=\"http://www.w3.org/2001/XMLSchema#string\" MustBePresent=\"true\"/></Apply><AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">enershare</AttributeValue></Apply></Condition></Rule>"
+          "text/plain":
+            "schema":
+              "type": "string"
+              "examples":
+                - "<Policy PolicyId=\"SamplePolicy\"><Target><Subjects><AnySubject/></Subjects><Actions><AnyAction/></Actions></Target></Policy>"
+      "responses":
+        "200":
+          "description": "Registered hash"
+          "content":
+            "text/plain":
+              "schema":
+                "type": "number"
+                "examples":
+                  - "0x5fbaf054adffe9580870bb81b9219576ba99057a31e61c9266572a2bb433a962"
+        "400":
+          "description": "Document already registered"
+          "content":
+            "text/plain":
+              "schema":
+                "type": "string"
+                "examples":
+                  - "Error: Returned error: VM Exception while processing transaction: revert Proof already notarized."
+        "500":
+          "description": "Input not valid"
+          "content":
+            "text/plain":
+              "schema":
+                "type": "string"
+                "examples":
+                  - "Internal Server Error"
+  "/verify":
+    "post":
+      "tags":
+        - "PoE"
+      "summary": "Check the existence of a document"
+      "description": "Calculate the document hash and prove its existence into the blockchain"
+      "operationId": "verifyDoc"
+      "requestBody":
+        "description": "The document to be proved"
+        "content":
+          "application/json":
+            "schema":
+              "type": "object"
+              "examples":
+                -
+                  "id": "RULE#001"
+                  "any property you need": "any format you like"
+                  "this is": "just an example"
+                  "timestamp": 1274563890
+                  "rule": "<Rule Effect=\"Permit\" RuleId=\"rule1\"><Condition><Apply FunctionId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\"><Apply FunctionId=\"urn:oasis:names:tc:xacml:1.0:function:string-one-and-only\"><AttributeDesignator AttributeId=\"urn:oasis:names:tc:xacml:1.0:subject:subject-id\" Category=\"urn:oasis:names:tc:xacml:1.0:subject-category:access-subject\" DataType=\"http://www.w3.org/2001/XMLSchema#string\" MustBePresent=\"true\"/></Apply><AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">enershare</AttributeValue></Apply></Condition></Rule>"
+          "text/plain":
+            "schema":
+              "type": "string"
+              "examples":
+                - "<Policy PolicyId=\"SamplePolicy\"><Target><Subjects><AnySubject/></Subjects><Actions><AnyAction/></Actions></Target></Policy>"
+      "responses":
+        "200":
+          "description": "Result of the proof check"
+          "content":
+            "text/plain":
+              "schema":
+                "type": "boolean"
+                "examples":
+                  - true
+                  - false
+            "application/json":
+              "schema":
+                "type": "object"
+                "description": "Proof of the document existence (timestamp = 0 means HASH NOT FOUND, document existence NOT PROVED)"
+                "properties":
+                  "information":
+                    "type": "string"
+                    "format": "text"
+                    "description": "Registered metadata (document information)"
+                    "examples":
+                      - "optional description/metadata attached to the proof"
+                  "provider":
+                    "type": "string"
+                    "format": "hex"
+                    "description": "Requester address (document provider)"
+                    "examples":
+                      - "0x89a47029b7168a240BD49bd446F79cee6cad11D4"
+                  "timestamp":
+                    "type": "string"
+                    "format": "uint"
+                    "description": "Notarization instant (proof timestamp)"
+                    "examples":
+                      - 127456389
+        "500":
+          "description": "Input not valid"
+          "content":
+            "text/plain":
+              "schema":
+                "type": "string"
+                "examples":
+                  - "Internal Server Error"
+"components":
+  "schemas":
+    "Proof":
+      "type": "object"
+      "description": "Proof of the document existence (timestamp = 0 means HASH NOT FOUND, document existence NOT PROVED)"
+      "properties":
+        "information":
+          "type": "string"
+          "format": "text"
+          "description": "Registered metadata (document information)"
+          "examples":
+            - "optional content/description/metadata attached to the proof"
+        "provider":
+          "type": "string"
+          "format": "hex"
+          "description": "Requester address (document provider)"
+          "examples":
+            - "0x89a47029b7168a240BD49bd446F79cee6cad11D4"
+        "timestamp":
+          "type": "string"
+          "format": "uint"
+          "description": "Notarization instant (proof timestamp)"
+          "examples":
+            - 127456389

@@ -1,0 +1,74 @@
+<group name="keycloak,authentication">
+    <!-- Invalid user credentials -->
+    <rule id="100001" level="8">
+        <regex>error="invalid_user_credentials"</regex>
+        <description>Keycloak: Invalid user credentials</description>
+        <mitre>
+            <id>T1078</id> <!-- Valid Accounts -->
+            <id>T1110</id> <!-- Brute Force -->
+        </mitre>
+    </rule>
+
+    <!-- Account blocked for too many failed attempts -->
+    <rule id="100002" level="8">
+        <regex>error="user_temporarily_locked"</regex>
+        <description>Keycloak: Account temporarily locked due to multiple failed login attempts</description>
+        <mitre>
+            <id>T1078.001</id>
+        </mitre>
+    </rule>
+
+    <!-- User disabled  -->
+    <rule id="100003" level="8">
+        <regex>error="user_disabled"</regex>
+        <description>Keycloak: User disabled</description>
+        <mitre>
+            <id>T1078.004</id> <!-- Privileged Account Abuse -->
+        </mitre>
+    </rule>
+    
+    <!-- User not found -->
+    <rule id="100004" level="8">
+        <regex>error="user_not_found"</regex>
+        <description>Keycloak: User not found</description>
+        <mitre>
+            <id>T1078</id> 
+        </mitre>
+    </rule>
+
+    <!-- Authentication issue with external identity provider -->
+    <rule id="100005" level="7">
+        <regex>error="identity_provider_error"</regex>
+        <description>Keycloak: Authentication issue with external identity provider</description>
+        <mitre>
+            <id>T1556</id> <!-- Modify Authentication Process -->
+        </mitre>
+    </rule>
+
+    <!-- Client provided invalid credentials -->
+    <rule id="100006" level="6">
+        <regex>error="invalid_client_credentials"</regex>
+        <description>Keycloak: Client provided invalid credentials</description>
+        <mitre>
+            <id>T1078</id> <!-- Valid Accounts -->
+        </mitre>
+    </rule>
+    
+    <!-- Expired authentication code -->
+    <rule id="100007" level="5">
+        <regex>error="expired_code"</regex>
+        <description>Keycloak: Expired authentication code</description>
+        <mitre>
+            <id>T1556.004</id> <!-- Use Alternate Authentication Material -->
+        </mitre>
+    </rule>
+
+    <!-- Invalid token -->
+    <rule id="100008" level="6">
+        <regex>error="invalid_token"</regex>
+        <description>Keycloak: Invalid token in user information request</description>
+        <mitre>
+            <id>T1557</id> <!-- Adversary-in-the-Middle: Man-in-the-Middle can include session/token hijacking -->
+        </mitre>
+    </rule>
+</group>

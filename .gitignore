@@ -36,8 +36,12 @@ jspm_packages/
 *.tgz
 .next
 
-setenv.bat
+*.save*
 *.backup
 *.bak
+*.gz
 .db
-.env
+.token
+certbot
+
+upload-to-github.sh

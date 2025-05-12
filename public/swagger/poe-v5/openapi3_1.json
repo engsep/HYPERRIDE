@@ -1,0 +1,252 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "JSON-RPC Web 3.0 Proxy API",
+    "description": "REST API to utilize the ProofOfExistence smart contract using HTTP requests.\nThis software has been tested with the following blockchains: \n- Ganache\n- Hyperledger Besu\n- Sepolia\n",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "alessandro.rossi@eng.it"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "1.5.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": ""
+    }
+  ],
+  "tags": [
+    {
+      "name": "PoE",
+      "description": "Proof of Existence",
+      "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "paths": {
+    "/notarize": {
+      "post": {
+        "tags": [
+          "PoE"
+        ],
+        "summary": "Certify the existence of a new document",
+        "description": "Calculate and register the document hash into the blockchain",
+        "operationId": "notarizeDoc",
+        "parameters": [
+          {
+            "name": "info",
+            "in": "query",
+            "description": "(Optional) Metadata attached to the notarization",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The document to be notarized (a plain text or a JSON object)",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "examples": [
+                  {
+                    "hello": "world",
+                    "timestamp": 1274567890
+                  }
+                ]
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "examples": [
+                  "Hello world!"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Registered hash",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "examples": [
+                    "0xecd0e108a98e192af1d2c25055f4e3bed784b5c877204e73219a5203251feaab"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Document already registered",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "examples": [
+                    "Error: Returned error: VM Exception while processing transaction: revert Proof already notarized."
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Input not valid",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "examples": [
+                    "Internal Server Error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verify": {
+      "post": {
+        "tags": [
+          "PoE"
+        ],
+        "summary": "Check the existence of a document",
+        "description": "Calculate the document hash and prove its existence into the blockchain",
+        "operationId": "verifyDoc",
+        "requestBody": {
+          "description": "The document to be verified (WARNING: pay attention on field order for JSON objects)",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "examples": [
+                  {
+                    "hello": "world",
+                    "timestamp": 1274567890
+                  }
+                ]
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "examples": [
+                  "Hello world!"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result of the proof check",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean",
+                  "examples": [
+                    true,
+                    false
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Proof of the document existence (timestamp = 0 means HASH NOT FOUND, document existence NOT PROVED)",
+                  "properties": {
+                    "information": {
+                      "type": "string",
+                      "format": "text",
+                      "description": "Registered metadata (document information)",
+                      "examples": [
+                        "optional description/metadata attached to the proof"
+                      ]
+                    },
+                    "provider": {
+                      "type": "string",
+                      "format": "hex",
+                      "description": "Requester address (document provider)",
+                      "examples": [
+                        "0x89a47029b7168a240BD49bd446F79cee6cad11D4"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "uint",
+                      "description": "Notarization instant (proof timestamp)",
+                      "examples": [
+                        1713818580
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Input not valid",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "examples": [
+                    "Internal Server Error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Proof": {
+        "type": "object",
+        "description": "Proof of the document existence (timestamp = 0 means HASH NOT FOUND, document existence NOT PROVED)",
+        "properties": {
+          "information": {
+            "type": "string",
+            "format": "text",
+            "description": "Registered metadata (document information)",
+            "examples": [
+              "optional content/description/metadata attached to the proof"
+            ]
+          },
+          "provider": {
+            "type": "string",
+            "format": "hex",
+            "description": "Requester address (document provider)",
+            "examples": [
+              "0x89a47029b7168a240BD49bd446F79cee6cad11D4"
+            ]
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "uint",
+            "description": "Notarization instant (proof timestamp)",
+            "examples": [
+              1713818580
+            ]
+          }
+        }
+      }
+    }
+  }
+}

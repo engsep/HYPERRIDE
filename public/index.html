@@ -1,26 +1,346 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="style.css">
-	</head>
-    <body>
-        <a href="https://hyperride.eu"><img class="logo" width="400px" src="https://hyperride.eu/wp-content/uploads/2021/03/HYPERRIDE_4C_transp.png" alt="HYPERRIDE logo"></a>
-        <h1 class="title">D5.6 - Open ICT Platform</h1>
-        <h3 class="signature">by Alerox, 2023</h3>
-        <a href="https://www.eng.it"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Engineering_logo.png/200px-Engineering_logo.png" alt="ENG logo"></a>
-            <br>
-            <a href="http://:1026/version"><button>Orion Context Broker</button></a>
-            <br>
-            <a href="http://:1027/version"><button>Orion-LD</button></a>
-            <br>
-            <a href="http://:3005"><button>Keyrock IdM</button></a>
-            <br>
-            <a href="https://hyperride.engsep.repl.co/"><button>Proof-of-Concept (Replit)</button></a>
-            <br>
-            <a href="https://github.com/engsep/HYPERRIDE/tree/main/"><button>GitHub Documentation</button></a>    
-            <br>
-            <a href="data-models"><button>Smart Data Models</button></a>    
-        </p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HYPERRIDE ICT Platform by Alerox</title>
+    <!--link rel="icon" href="https://hyperride.eu/favicon.ico" type="image/x-icon"-->
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/2/29/Trifuerza.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--link rel="stylesheet" href="style.css"-->
+    <style>
+        :root {
+            --bg-light: #ffffff;
+            --bg-dark: #0f172a;
+            --text-light: #333;
+            --text-dark: #f0f0f0;
+            --card-light: #f1f5f9;
+            --card-dark: #1e293b;
+            --button: #0073e6;
+            --button-hover: #005bb5;
+            --shadow-light: rgba(64, 64, 64, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.4);
+            --accent-terni: #aa6767;
+            --accent-fiware: #3eadfe;
+            --accent-swagger: #28a745;
+            --overlay-bg: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.4;
+            transition: background 0.3s, color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        body.light {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+        body.dark {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            background-color: var(--card-light);
+            box-shadow: 0 4px 6px var(--shadow-light);
+            border-radius: 10px;
+            padding: 0.4rem 0.8rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            max-width: 700px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            background-color: #ecf0f1;
+            box-shadow: 0 6px 8px rgba(64, 64, 64, 0.2);
+        }
+
+        body.dark .container {
+            background-color: var(--card-dark);
+            color: var(--text-dark);
+        }
+
+        body.dark .container:hover {
+            background-color: #2d3748;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            display: none;
+        }
+
+        .alert-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 80%;
+            width: 320px;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            display: none;
+            z-index: 1000;
+        }
+
+        body.dark .alert-container {
+            background-color: var(--card-dark);
+            color: var(--text-dark);
+        }
+
+        .alert-container pre {
+            background-color: #efefef;
+            padding: 0.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.8rem;
+            white-space: pre-wrap;
+            position: relative;
+            margin-bottom: 0.3rem;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+        body.dark .alert-container pre {
+            background-color: #444;
+        }
+
+        .alert-container .copy-icon {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            cursor: pointer;
+            color: var(--button);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #f5c518;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hyperride-logo {
+            height: 5rem;
+            max-width: 100%;
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            color: var(--button);
+            font-size: 1.6rem;
+            margin: 0;
+        }
+
+        .by-alerox {
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .container.node-red h2 {
+            color: var(--accent-terni);
+        }
+
+        .container.fiware h2 {
+            color: var(--accent-fiware);
+        }
+
+        .container.swagger h2 {
+            color: var(--accent-swagger);
+        }
+
+        h2 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            justify-content: flex-start;
+        }
+
+        button, a button {
+            font: inherit;
+            font-size: 1rem;
+            padding: 0.3rem 0.5rem;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--button);
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out, box-shadow 0.2s;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        button:hover, a button:hover {
+            background-color: var(--button-hover);
+            box-shadow: 0 3px 6px var(--shadow-light);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .alert-container button#closeAlert {
+            margin-top: 1.5rem;
+        }
+
+        .powered-by-fiware {
+            max-width: 11rem;
+            opacity: 0.85;
+            margin-top: 1.5rem;
+        }
+
+        .smart-energy {
+            max-width: 8rem;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <header>
+        <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+        <div class="header-content">
+            <img class="hyperride-logo" src="https://hyperride.eu/wp-content/uploads/2021/03/HYPERRIDE_4C_transp.png" alt="HYPERRIDE Logo" />
+            <h1>Welcome to the WP5 Open ICT Platform</h1>
+            <p class="by-alerox">
+                by Alerox, 2023–2025
+            </p>
+        </div>
+    </header>
+
+    <div class="container node-red" style="margin-top: 0.5rem;"> <h2>Demo</h2>
+        <div class="button-container">
+            <a href="/dashboard"><button>Dashboard</button></a>
+            <a id="node-red" href="#"><button>Editor</button></a>
+            <button id="showAlert">Commands</button>
+            <a href="/link.html"><button>Link</button></a>
+            <a href="/uploads"><button>Show uploaded files</button></a>
+        </div>
+    </div>
+
+    <div class="alert-container" id="alertContainer">
+        <h3 style="position: relative;">Upload files<i class="fas fa-copy copy-icon" onclick="copyToClipboard('uploadCommand')"></i></h3>
+        <div><pre id="uploadCommand"></pre></div>
+        <h3 style="position: relative;">Delete files<i class="fas fa-copy copy-icon" onclick="copyToClipboard('deleteCommand')"></i></h3>
+        <div><pre id="deleteCommand"></pre></div>
+        <button id="closeAlert">Close</button>
+    </div>
+
+    <div class="container fiware" style="margin-top: 0rem;"> <h2>FIWARE</h2>  <div class="button-container">
+            <a href="/orion/version"><button>Orion-LD</button></a>
+            <a href="https://github.com/smart-data-models/dataModel.Device/blob/master/DeviceMeasurement/doc/spec.md"><button>Data model</button></a>
+            <a href="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"><button>NGSI-LD Core</button></a>
+            <a href="/data-models/context.jsonld"><button>Download @context file</button></a>
+        </div>
+    </div>
+
+    <div class="container swagger" style="margin-top: 0.5rem;"> <h2>Swagger</h2>
+        <div class="button-container">
+            <a href="/swagger/ngsi-ld"><button>NGSI-LD API</button></a>
+            <a href="/swagger/ngsi-v2"><button>NGSI-v2 API</button></a>
+            <a href="/swagger/poe-v5"><button>PoE v5 API</button></a>
+        </div>
+    </div>
+
+    <img class="powered-by-fiware" src="https://www.fiware.org/custom/brand-guide/img/badges/marketplace/svg/powered-by-fiware.svg" alt="Powered by FIWARE" />
+    <img class="smart-energy" src="https://www.fiware.org/custom/brand-guide/img/badges/domains/svg/smart-energy.svg" alt="Smart Energy" />
+
+    <script>
+        const alertBtn = document.getElementById("showAlert");
+        const closeAlertBtn = document.getElementById("closeAlert");
+        const alertContainer = document.getElementById("alertContainer");
+        const overlay = document.getElementById("overlay");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        alertBtn.addEventListener("click", () => {
+            document.getElementById("uploadCommand").innerHTML =
+                `curl -#TkL <b><i>file-path</i></b> ${location.origin}/api/upload/<b><i>file-name</i></b> -H "Content-Type: application/octet-stream" | more<i> (or </i>cat<i>)</i>`;
+            document.getElementById("deleteCommand").innerHTML =
+                `curl -kL ${location.origin}/api/delete/<b><i>file-name</i></b>`;
+            alertContainer.style.display = "block";
+            overlay.style.display = "block";
+        });
+
+        closeAlertBtn.addEventListener("click", () => {
+            alertContainer.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        overlay.addEventListener("click", () => {
+            alertContainer.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        document.getElementById("node-red").href = `http://${location.hostname}:1880/editor`;
+
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const savedTheme = localStorage.getItem("theme");
+
+        let currentTheme = savedTheme || (prefersDark ? "dark" : "light");
+        document.body.classList.add(currentTheme);
+        themeIcon.className = currentTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            document.body.classList.toggle("light");
+            const newTheme = document.body.classList.contains("dark") ? "dark" : "light";
+            localStorage.setItem("theme", newTheme);
+            themeIcon.className = newTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+        });
+
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Command copied to clipboard!");
+            });
+        }
+    </script>
+</body>
 </html>

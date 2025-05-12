@@ -1,0 +1,96 @@
+{
+  "realm": "dedalus",
+  "enabled": true,
+  "displayName": "Dedalus Realm",
+  "sslRequired": "external",
+  "clientScopes": [
+    {
+      "name": "openid",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true"
+      }
+    },
+    {
+      "name": "profile",
+      "description": "OpenID Connect built-in scope: profile",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true"
+      }
+    },
+    {
+      "name": "email",
+      "description": "OpenID Connect built-in scope: email",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true"
+      }
+    },
+    {
+      "name": "roles",
+      "description": "OpenID Connect scope for add user roles to the access token",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "false"
+      },
+      "protocolMappers": [
+        {
+          "name": "roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "multivalued": "true",
+            "access.token.claim": "true",
+            "claim.name": "roles"
+          }
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "orion",
+      "name": "Orion Client",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "clientAuthenticatorType": "client-secret",
+      "secret": "u0uEieRqtUVrXPluUAiuvGAZ2Qk4Bco6", 
+      "redirectUris": ["*"],
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "attributes": {
+        "post.logout.redirect.uris": "*",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "true"
+      },
+      "defaultClientScopes": ["web-origins", "role_list", "openid"],
+      "optionalClientScopes": ["profile", "email"]
+    }
+  ],
+  "attributes": {
+    "frontendUrl": "http://keycloak:8080"
+  },
+  "users": [
+    {
+      "username": "myuser",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "My",
+      "lastName": "User",
+      "email": "myuser@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "myuser",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}

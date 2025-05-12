@@ -1,0 +1,38 @@
+{
+  "realm" : "dedalus",
+  "users" : [ {
+    "id" : "c6c53b8f-fca6-4ae7-b72a-4a0f58ef01b3",
+    "username" : "myuser",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "My",
+    "lastName" : "User",
+    "email" : "myuser@example.com",
+    "credentials" : [ {
+      "id" : "c792f23c-66f1-4f5b-a074-552242ea08a8",
+      "type" : "password",
+      "createdDate" : 1737142999174,
+      "secretData" : "{\"value\":\"n+oglr49z3mKydR0d7ppLYu1EyezL3GUdKzjfbY/Ql0=\",\"salt\":\"WkhgAoXKab8V9ux7G0PPTQ==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "4e2bed06-ede4-4ac5-8097-e45b153df011",
+    "createdTimestamp" : 1737143000146,
+    "username" : "service-account-orion",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "serviceAccountClientId" : "orion",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-dedalus" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
